@@ -1,0 +1,252 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');*/
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+}
+
+/*PresetAI Search*/
+.PresetAI-search {
+	font-family: 'Poppins', sans-serif;
+	background-color: #f4f5f8;
+	width: 12rem;
+	display: flex;
+	align-items: center;
+	border-radius: 0.75rem;
+	padding: 0.5rem 1rem;
+	color: #8a909e;
+	cursor: pointer;
+	font-weight: 500;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	transition: background-color 0.15s, color 0.15s;
+}
+
+.PresetAI-search:hover {
+	background-color: rgba(209, 213, 219, 0.3);
+}
+
+.PresetAI-search-input{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	width: 100%;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	cursor: pointer;
+}
+
+.PresetAI-search-input::placeholder{
+	color: #8a909e;
+}
+
+.PresetAI-search-command{
+	background-color: #ffffff;
+	font-size: 0.75rem;
+	border-radius: 0.5rem;
+	padding: 0.25rem;
+}
+
+/*PresetAI Chatbot*/
+.PAI-relative {
+	position: relative;
+}
+.PAI-absolute {
+	position: absolute;
+}
+.PAI-fixed{
+	position: fixed;
+}
+
+.PAI-bg-slate-200-20 {
+	background-color: rgba(143, 162, 177, 0.2); /* This assumes a typical slate-200 color with 20% opacity. Adjust the RGB values as needed. */
+}
+.PAI-primary {
+	background-color: rgb(23, 23, 23, 0.9);
+}
+.PAI-bg-gray-600 {
+	background-color: #4B5563;
+}
+
+.PAI-text-white {
+	color: #FFFFFF;
+}
+
+.PAI-flex {
+	display: flex;
+}
+.PAI-block {
+	display: block;
+}
+.PAI-items-center {
+	align-items: center;
+}
+.PAI-justify-center {
+	justify-content: center;
+}
+.PAI-flex-col {
+	flex-direction: column;
+}
+
+/* text size */
+.PAI-text-sm {
+	font-size: 0.875rem;
+}
+
+/* height and width*/
+.PAI-w-5 {
+	width: 1.25rem;
+}
+
+.PAI-h-5 {
+	height: 1.25rem;
+}
+.PAI-w-8 {
+	width: 2rem;
+}
+.PAI-h-8 {
+	height: 2rem;
+}
+.PAI-w-10 {
+	width: 2.5rem;
+}
+.PAI-h-10 {
+	height: 2.5rem;
+}
+.PAI-w-full {
+	width: 100%;
+}
+.PAI-h-full {
+	height: 100%;
+}
+.PAI-max-h-40rem {
+	max-height: 40rem;
+}
+
+.PAI-overflow-y-auto {
+	overflow-y: auto;
+}
+
+/*padding*/
+.PAI-left-0 {
+	left: 0;
+}
+.PAI-left-6 {
+	left: 1.5rem;
+}
+.PAI-p-0 {
+	padding: 0;
+}
+.PAI-p-1 {
+	padding: 0.25rem;
+}
+.PAI-p-2 {
+	padding: 0.5rem;
+}
+.PAI-p-3 {
+	padding: 0.75rem;
+}
+.PAI-p-4 {
+	padding: 1rem;
+}
+.PAI-p-6 {
+	padding: 1.5rem;
+}
+.PAI-p-2-5 {
+	padding: 0.625rem;
+}
+.PAI-pl-3 {
+	padding-left: 0.75rem;
+}
+
+.PAI-pl-10 {
+	padding-left: 2.5rem;
+}
+.PAI-py-3 {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+}
+.PAI-py-6 {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.PAI-inset-y-0 {
+	top: 0;
+	bottom: 0;
+}
+
+
+/* margin */
+.PAI-mt-1 {
+	margin-top: 0.25rem;
+}
+.PAI-mt-2 {
+	margin-top: 0.5rem;
+}
+.PAI-ml-2 {
+	margin-left: 0.5rem;
+}
+.PAI-mt-auto {
+	margin-top: auto;
+}
+.PAI-ml-auto {
+	margin-left: auto;
+}
+.PAI-my-6 {
+	margin: 1.5rem 0;
+}
+
+/* border */
+.PAI-border-0{
+	border-width: 0px;
+}
+.PAI-border-1 {
+	border: 1px solid #000000;
+}
+.PAI-border-2 {
+	border: 2px solid #000000;
+}
+
+/*gap*/
+.PAI-gap-2 {
+	gap: 0.5rem;
+}
+
+/**/
+.PAI-shadow-xl {
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.PAI-shadow-lg {
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.PAI-backdrop-blur-lg {
+	backdrop-filter: blur(20px);
+}
+
+/* Border Radius */
+.PAI-rounded-md {
+	border-radius: 0.375rem;
+}
+.PAI-rounded-lg {
+	border-radius: 0.5rem;
+}
+.PAI-rounded-xl {
+	border-radius: 0.875rem;
+}
+.PAI-rounded-3xl {
+	border-radius: 3rem;
+}
+
+.PAI-font-medium {
+	font-weight: 500;
+}
+
+
+.PAI-pointer-events-none {
+	pointer-events: none;
+}
