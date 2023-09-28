@@ -61,6 +61,9 @@ p{
 	position: fixed;
 }
 
+.PAI-bg-black{
+	background-color: #1c1c1c;
+}
 .PAI-bg-slate-200-20 {
 	background-color: rgba(143, 162, 177, 0.2); /* This assumes a typical slate-200 color with 20% opacity. Adjust the RGB values as needed. */
 }

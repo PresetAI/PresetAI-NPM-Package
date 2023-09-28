@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { PresetAISearchBar, SearchProps } from '../src';
+import '../src/index.css';
 
 export default {
   title: 'Search',

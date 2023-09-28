@@ -10,13 +10,17 @@ import remarkGfm from 'remark-gfm';
 export interface ChatbotProps {
   open: boolean;
   setOpen: (value: boolean) => void;
+  user_api_key: string;
+  project_api_key: string;
 }
 
 export interface Question{
+  user_api_key: string;
+  project_api_key: string;
   question: string;
 }
 
-export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen }: ChatbotProps) => {
+export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen, user_api_key, project_api_key }: ChatbotProps) => {
   const [isTyping, setIsTyping] = useState<boolean>(false); // is typing]
   const [userMessage, setUserMessage] = useState<string>(''); // user input
   const [messages, setMessages] = useState<any[]>([
@@ -39,9 +43,11 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen }: Chatb
   const processMessage = async (chatMessages: any) => {
     setUserMessage('');
     const body: Question = {
+      user_api_key: user_api_key,
+      project_api_key: project_api_key,
       question: chatMessages,
     };
-    const response = await fetch(`http://127.0.0.1:8000/api/project/do_chat_server/64e910266d99ed1ff4c7c6ff`, {
+    const response = await fetch(`http://127.0.0.1:8000/api/project/do_chat_server`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -172,7 +178,7 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen }: Chatb
             {isTyping || userMessage.length === 0 ? (
               <button
                 type="submit"
-                className="PAI-flex PAI-items-center PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium text-primary-foreground PAI-bg-gray-600 PAI-rounded-lg"
+                className="PAI-flex PAI-items-center PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-bg-gray-600 PAI-rounded-xl"
                 disabled
               >
                 <SendRoundedIcon />
@@ -180,7 +186,7 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen }: Chatb
             ) : (
               <button
                 type="submit"
-                className="PAI-flex PAI-items-center PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium text-primary-foreground bg-primary/90 PAI-shadow-xl PAI-rounded-lg"
+                className="PAI-flex PAI-items-center PAI-bg-black PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-shadow-xl PAI-rounded-xl"
                 onClick={(e) => handleSend(e)}
               >
                 <SendRoundedIcon />

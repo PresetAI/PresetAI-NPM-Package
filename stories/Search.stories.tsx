@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { PresetAIChatbot, ChatbotProps } from '../src';
+import '../src/index.css';
 
 export default {
   title: 'Chatbot',
