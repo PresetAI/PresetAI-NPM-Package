@@ -47,7 +47,7 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen, user_ap
       project_api_key: project_api_key,
       question: chatMessages,
     };
-    const response = await fetch(`http://127.0.0.1:8000/api/project/do_chat_server`, {
+    const response = await fetch(`https://thepresetai.com/api/project/do_chat_server`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -193,9 +193,9 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen, user_ap
               </button>
             )}
           </form>
-          <div className="PAI-flex PAI-ml-auto PAI-text-sm text-muted-foreground PAI-py-3">
+          <div className="PAI-flex PAI-ml-auto PAI-text-sm PAI-py-3">
             <p>Power by &nbsp;</p>
-            <p className="PAI-font-medium text-primary">PresetAI</p>
+            <p className="PAI-font-medium">PresetAI</p>
           </div>
         </div>
       </div>
