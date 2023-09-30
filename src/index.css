@@ -33,14 +33,14 @@ p{
 	transform: translate(-50%, -50%);
 	line-height: 1.4;
 	background: #f1f1f1;
-	padding: 14px 28px;
+	padding: 14px;
 	border-radius: 3px;
-	max-width: 600px;
-	min-width: 300px;
+	max-width: 800px;
+	min-width: 800px;
 }
 
 .overlay {
-	background: rgba(49,49,49,0.8);
+	background: rgba(49,49,49,0.5);
 }
 
 /*PresetAI Search*/
@@ -142,10 +142,10 @@ p{
 	height: 1.25rem;
 }
 .PAI-w-8 {
-	width: 2rem;
+	width: 32px;
 }
 .PAI-h-8 {
-	height: 2rem;
+	height: 32px;
 }
 .PAI-w-10 {
 	width: 2.5rem;

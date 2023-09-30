@@ -110,7 +110,7 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen, user_ap
       // <Dialog onClose={handleClose} open={true} fullWidth={true} maxWidth="md" sx={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
         <div className="modal">
           <div className='overlay' onClick={handleClose}></div>
-          <div className="PAI-flex PAI-flex-col PAI-rounded-3xl PAI-w-full PAI-max-h-40rem modal-content">
+          <div className="PAI-flex PAI-flex-col PAI-rounded-xl PAI-w-full PAI-max-h-40rem modal-content">
             <div className="PAI-flex PAI-flex-col PAI-overflow-auto PAI-p-4">
               <div>
                 {messages.map((message) => {
@@ -180,13 +180,11 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen, user_ap
                   />
                 </div>
                 {isTyping || userMessage.length === 0 ? (
-                  <button
-                    type="submit"
+                  <div
                     className="PAI-flex PAI-items-center PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-bg-gray-600 PAI-rounded-xl"
-                    disabled
                   >
                     <SendRoundedIcon />
-                  </button>
+                  </div>
                 ) : (
                   <button
                     type="submit"
