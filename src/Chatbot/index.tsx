@@ -105,100 +105,108 @@ export const PresetAIChatbot: React.FC<ChatbotProps> = ({ open, setOpen, user_ap
   };
 
   return (
-    <Dialog onClose={handleClose} open={open} fullWidth={true} maxWidth="md" sx={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
-      <div className="PAI-flex PAI-flex-col PAI-rounded-3xl PAI-w-full PAI-max-h-40rem">
-        <div className="PAI-flex PAI-flex-col PAI-overflow-auto PAI-p-4">
-          <div>
-            {messages.map((message) => {
-              return (
-                <div key={message.message}>
-                  {message.sender === 'ChatGPT' ||
-                  message.sender === 'assistant' ? (
-                    <div className="PAI-flex PAI-p-4 gap-2 PAI-backdrop-blur-lg PAI-rounded-md">
-                      <div className="PAI-w-8 PAI-h-8 PAI-border-1 PAI-p-1 PAI-rounded-lg">
-                        <img
-                          className="PAI-rounded-xl PAI-w-8 PAI-h-8"
-                          src="https://cs410032002121be004.blob.core.windows.net/preset/logo.svg"
-                          alt="bot"
-                        />
-                      </div>
-                      <div className="PAI-flex PAI-w-full PAI-pl-3 PAI-mt-1">
-                        <div className="text-gray-600">
-                          <ReactMarkdown
-                            remarkPlugins={[
-                              [remarkGfm, { singleTilde: false }],
-                            ]}
-                            className="prose prose-slate dark:text-gray-50 PAI-p-0"
-                          >
-                            {message.message}
-                          </ReactMarkdown>
+    <>
+      {open && (
+      // <Dialog onClose={handleClose} open={true} fullWidth={true} maxWidth="md" sx={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
+        <div className="modal">
+          <div className='overlay' onClick={handleClose}></div>
+          <div className="PAI-flex PAI-flex-col PAI-rounded-3xl PAI-w-full PAI-max-h-40rem modal-content">
+            <div className="PAI-flex PAI-flex-col PAI-overflow-auto PAI-p-4">
+              <div>
+                {messages.map((message) => {
+                  return (
+                    <div key={message.message}>
+                      {message.sender === 'ChatGPT' ||
+                      message.sender === 'assistant' ? (
+                        <div className="PAI-flex PAI-p-4 gap-2 PAI-backdrop-blur-lg PAI-rounded-md">
+                          <div className="PAI-w-8 PAI-h-8 PAI-border-1 PAI-p-1 PAI-rounded-lg">
+                            <img
+                              className="PAI-rounded-xl PAI-w-8 PAI-h-8"
+                              src="https://cs410032002121be004.blob.core.windows.net/preset/logo.svg"
+                              alt="bot"
+                            />
+                          </div>
+                          <div className="PAI-flex PAI-w-full PAI-pl-3 PAI-mt-1">
+                            <div className="text-gray-600">
+                              <ReactMarkdown
+                                remarkPlugins={[
+                                  [remarkGfm, { singleTilde: false }],
+                                ]}
+                                className="prose prose-slate dark:text-gray-50 PAI-p-0"
+                              >
+                                {message.message}
+                              </ReactMarkdown>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="PAI-flex PAI-items-center PAI-gap-2 PAI-my-6">
-                      <div className="PAI-ml-auto PAI-flex PAI-flex-col">
-                        <div className="PAI-primary PAI-text-white PAI-shadow-lg PAI-p-3 PAI-rounded-xl">
-                          {message.message}
+                      ) : (
+                        <div className="PAI-flex PAI-items-center PAI-gap-2 PAI-my-6">
+                          <div className="PAI-ml-auto PAI-flex PAI-flex-col">
+                            <div className="PAI-primary PAI-text-white PAI-shadow-lg PAI-p-3 PAI-rounded-xl">
+                              {message.message}
+                            </div>
+                          </div>
+                          <div className="PAI-flex PAI-items-center PAI-justify-center PAI-border-2 border-primary PAI-w-8 PAI-h-8 PAI-rounded-md">
+                            <PersonRoundedIcon />
+                          </div>
                         </div>
-                      </div>
-                      <div className="PAI-flex PAI-items-center PAI-justify-center PAI-border-2 border-primary PAI-w-8 PAI-h-8 PAI-rounded-md">
-                        <PersonRoundedIcon />
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              );
-            })}
-            {isTyping && (
-              <div className="text-black mt-2 flex gap-2">
-                {/*<UseAnimations animation={loading} />*/}
-                <div>Thinking...</div>
+                  );
+                })}
+                {isTyping && (
+                  <div className="text-black mt-2 flex gap-2">
+                    {/*<UseAnimations animation={loading} />*/}
+                    <div>Thinking...</div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </div>
-        <div className="PAI-mt-auto PAI-py-6">
-          <form className="PAI-flex PAI-items-center" onSubmit={(e) => handleSend(e)}>
-            <div className="PAI-flex PAI-items-center PAI-w-full">
-              <div className="PAI-absolute PAI-left-4 PAI-flex PAI-items-center PAI-pl-3 PAI-pointer-events-none">
-                <SearchRoundedIcon />
-              </div>
-              <input
-                type="text"
-                id="simple-search"
-                className="text-muted-foreground PAI-w-full PAI-border-0 PAI-text-sm PAI-bg-slate-200-20 PAI-rounded-lg focus:ring-black focus:border-black PAI-w-full PAI-pl-10 PAI-p-2-5 PAI-py-3 dark:placeholder-gray-400"
-                placeholder="Chat here..."
-                value={userMessage}
-                autoComplete="off"
-                required
-                onChange={(e: any) => setUserMessage(e.target.value)}
-              />
             </div>
-            {isTyping || userMessage.length === 0 ? (
-              <button
-                type="submit"
-                className="PAI-flex PAI-items-center PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-bg-gray-600 PAI-rounded-xl"
-                disabled
-              >
-                <SendRoundedIcon />
-              </button>
-            ) : (
-              <button
-                type="submit"
-                className="PAI-flex PAI-items-center PAI-bg-black PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-shadow-xl PAI-rounded-xl"
-                onClick={(e) => handleSend(e)}
-              >
-                <SendRoundedIcon />
-              </button>
-            )}
-          </form>
-          <div className="PAI-flex PAI-ml-auto PAI-text-sm PAI-py-3">
-            <p>Power by &nbsp;</p>
-            <p className="PAI-font-medium">PresetAI</p>
+            <div className="PAI-mt-auto PAI-py-6">
+              <form className="PAI-flex PAI-items-center" onSubmit={(e) => handleSend(e)}>
+                <div className="PAI-flex PAI-items-center PAI-w-full">
+                  <div className="PAI-absolute PAI-left-4 PAI-flex PAI-items-center PAI-pl-3 PAI-pointer-events-none">
+                    <SearchRoundedIcon />
+                  </div>
+                  <input
+                    type="text"
+                    id="simple-search"
+                    className="text-muted-foreground PAI-w-full PAI-border-0 PAI-text-sm PAI-bg-slate-200-20 PAI-rounded-lg focus:ring-black focus:border-black PAI-w-full PAI-pl-10 PAI-p-2-5 PAI-py-3 dark:placeholder-gray-400"
+                    placeholder="Chat here..."
+                    value={userMessage}
+                    autoComplete="off"
+                    required
+                    onChange={(e: any) => setUserMessage(e.target.value)}
+                  />
+                </div>
+                {isTyping || userMessage.length === 0 ? (
+                  <button
+                    type="submit"
+                    className="PAI-flex PAI-items-center PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-bg-gray-600 PAI-rounded-xl"
+                    disabled
+                  >
+                    <SendRoundedIcon />
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="PAI-flex PAI-items-center PAI-bg-black PAI-text-white PAI-p-2 PAI-ml-2 PAI-text-sm PAI-font-medium PAI-shadow-xl PAI-rounded-xl"
+                    onClick={(e) => handleSend(e)}
+                  >
+                    <SendRoundedIcon />
+                  </button>
+                )}
+              </form>
+              <div className="PAI-flex PAI-ml-auto PAI-text-sm PAI-py-3">
+                <p>Power by &nbsp;</p>
+                <p className="PAI-font-medium">PresetAI</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </Dialog>
+      // </Dialog>
+      )}
+    </>
+
   );
 };

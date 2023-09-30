@@ -11,7 +11,7 @@ export interface SearchProps {
 }
 
 export const PresetAISearchBar: React.FC<SearchProps> = ({style, placeholder="Search...", user_api_key, project_api_key }: SearchProps) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(true);
   const handleClickOpen = () => {
     setOpen(true);
   };

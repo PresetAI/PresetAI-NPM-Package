@@ -1,6 +1,6 @@
 # PresetAI Search
 
-A React component for intergrating PresetAI Search into your React application.
+A React component for intergrating [PresetAI](https://thepresetai.com/) Search into your React application.
 
 
 ## Installation
