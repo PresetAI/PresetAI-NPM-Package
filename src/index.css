@@ -9,6 +9,10 @@ p{
 	padding: 0;
 }
 
+.PAI-overflow-auto{
+	overflow: auto;
+}
+
 .active-modal {
 	overflow-y: hidden;
 }
